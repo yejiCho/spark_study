@@ -39,3 +39,25 @@ sudo gedit /etc/profile
 export (spark 설치위치)
 
 ```
+
+## ERROR
+
+- Constructor org.apache.spark.api.python.PythonAccumulatorV2([class java.lang.String, class java.lang.Integer]) does not exist
+
+- pyspark -- or spark-submit
+
+- ./pyspark --packages org.apache.spark:spark-streaming-kafka-0-8-assembly_2.11:2.0.2(python파일 경로)
+
+- bin/spark-submit --packages org.apache.spark:spark-streaming-kafka-0-10_2.11:2.2.0 (python파일 경로)
+
+- bin/spark-submit --jars yourjarfile.jar --packages org.apache.spark:spark-streaming-kafka-0-8-assembly_2.11:2.4.3 (python파일 경로)
+
+```
+'pyspark' is not supported as of Spark 2.0
+
+Spark 2점대 이후로는 spark-submit 사용
+
+```
+
+- [카프카 실행안될때](https://stackoverflow.com/questions/52040384/spark-unable-to-download-kafka-library)
+- [pyspark](https://github.com/YBIGTA/EngineeringTeam/wiki/02.-PySpark-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%B6%95)
