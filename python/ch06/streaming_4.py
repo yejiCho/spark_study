@@ -6,6 +6,11 @@ os.environ['PYSPARK_PYTHON'] = '/usr/bin/python3'
 os.environ['PYSPARK_DRIVER_PYTHON'] = '/usr/bin/python3'
 
 conf = SparkConf()
+
+conf.set("spark.app.name","StreamingOps")
+conf.set("spark.master","local[*]")
+conf.set("spark.ui.port","36000")
+
 sc = SparkContext(master ="local[*]",appName="StreamingOps", conf=conf)
 ssc = StreamingContext(sc,1)
 
@@ -93,7 +98,7 @@ def invFnc(v1,v2):
 def reduceFnc(v1,v2):
     return v1 + v2
 
-# ds7.reduceByWindow(reduceFunc=reduceFnc, invReduceFunc=invFnc, windowDuration=3, slideDuration=2).pprint()
+ds7.reduceByWindow(reduceFunc=reduceFnc, invReduceFunc=invFnc, windowDuration=3, slideDuration=2).pprint()
 # ds7.map(lambda v: ("sum", v)).reduceByKeyAndWindow(reduceFnc, invFnc, 3, 2).pprint()
 
 # ANCHOR countByValueAndWindow(windowLength,slideInterval,[numTasks])
